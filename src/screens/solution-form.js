@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
-import { ScrollView, View, Text, Image, TextInput } from 'react-native'
-// import { Card, Tile, List, ListItem, Avatar, Button } from 'react-native-elements'
-import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements'
-// import SolutionComment from '../components/comment'
-// import {fetchSolutionComments, fetchSolution, fetchProblems} from '../config/data/index'
+import { View, Text, TextInput } from 'react-native'
+import { FormLabel, FormInput, Button } from 'react-native-elements'
 
 
 class SolutionForm extends Component {
@@ -12,13 +9,9 @@ class SolutionForm extends Component {
     this.state = {}
   }
 
-
   onPressUpvote = () => {}
 
   onPressDownvote = () => {}
-
-
-
 
   render() {
     return (
@@ -35,7 +28,7 @@ class SolutionForm extends Component {
         <Button title="submit" backgroundColor="dodgerblue"/>
       </View>
     </View>
-    );
+    )
   }
 }
 

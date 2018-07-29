@@ -26,7 +26,7 @@ class ProblemForm extends Component {
         <Button title="submit" backgroundColor="dodgerblue"/>
       </View>
     </View>
-    );
+    )
   }
 }
 

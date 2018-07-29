@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
-import { Tile, List, ListItem } from 'react-native-elements';
+import React, { Component } from 'react'
+import { ScrollView } from 'react-native'
+import { Tile} from 'react-native-elements'
 import {fetchSolutions, fetchProblems} from '../fake-data'
 
 class UserDetail extends Component {
@@ -27,7 +27,7 @@ class UserDetail extends Component {
   }
 
   render() {
-    const { avatar, name, email, bio} = this.props.navigation.state.params;
+    const { avatar, name, bio} = this.props.navigation.state.params;
     const { solutions, problems, showView} = this.state
     return (
       <ScrollView>
@@ -66,8 +66,8 @@ class UserDetail extends Component {
         </View>
 
       </ScrollView>
-    );
+    )
   }
 }
 
-export default UserDetail;
+export default UserDetail
