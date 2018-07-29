@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-import { ScrollView, View, Text, Button } from 'react-native';
-import { Tile, List, ListItem } from 'react-native-elements';
+import React, { Component } from 'react'
+import { ScrollView, View, Text, Button } from 'react-native'
+import { Tile} from 'react-native-elements'
 import ProblemTile from '../components/problem-tile'
 import SolutionTile from '../components/solution-tile'
-
 import {fetchSolutions, fetchProblems} from '../fake-data'
 
 class UserDetail extends Component {
@@ -29,17 +28,18 @@ class UserDetail extends Component {
     .then( problems => this.setState({problems, showView:'following'}))
   }
   
-  onLearnMore = (problem) => {
+  onLearnMore = (problem) =>
     this.props.navigation.navigate('Problem', { ...problem })
-  }
-  onReadMore = (solution) => {
+    
+  onReadMore = (solution) =>
     this.props.navigation.navigate('Solution', { ...solution })
-  }
+
 
   render() {
-    const { avatar, name, email, bio, title} = this.props.navigation.state.params;
+    const { avatar, name, bio, title} = this.props.navigation.state.params
     const profile = {...this.props.navigation.state.params}
     const { solutions, problems, showView} = this.state
+    
     return (
       <ScrollView>
         <Tile
