@@ -5,7 +5,7 @@ import {looper, promisify} from './util'
 class Problem {
   constructor(owner) {
     this.id = faker.random.uuid()
-    this.name = faker.name.title()
+    this.name = faker.lorem.words()
     this.desc = faker.lorem.paragraph()
     this.followers = 10
     this.subProblems = 10
