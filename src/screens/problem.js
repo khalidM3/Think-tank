@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { ScrollView, View, Text, Button } from 'react-native'
-import { Card, Tile, List, ListItem, Button as Btn } from 'react-native-elements'
+import { List, ListItem, Button as Btn } from 'react-native-elements'
 import SolutionTile from '../components/solution-tile'
 import ProblemTile from '../components/problem-tile'
 import {fetchSolutions, fetchUsers, fetchProblems} from '../fake-data'
