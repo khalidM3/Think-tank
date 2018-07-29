@@ -8,8 +8,7 @@ class Solution {
     this.owner = owner ? owner : new User()
     this.title = faker.name.title()
     this.content = faker.lorem.paragraph()
-    this.banner = "https://lorempixel.com/640/480/business"
-    // this.banner = 'https'+ (faker.random.image()).slice(4)
+    this.banner = 'https'+ (faker.random.image()).slice(4)
     this.upvotes = []
     this.downvotes = []
   }
