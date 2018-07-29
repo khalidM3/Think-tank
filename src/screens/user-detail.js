@@ -4,7 +4,7 @@ import { Tile, List, ListItem } from 'react-native-elements';
 import ProblemTile from '../components/problem-tile'
 import SolutionTile from '../components/solution-tile'
 
-import {fetchSolutions, fetchProblems} from '../config/data/index'
+import {fetchSolutions, fetchProblems} from '../fake-data'
 
 class UserDetail extends Component {
   constructor(props) {
