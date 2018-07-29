@@ -8,8 +8,6 @@ class Post {
     this.title = faker.name.title()
     this.desc = faker.lorem.paragraph()
     this.imageURI = faker.random.image()
-    // this.likes = [...getFakeUsers(10)]
-    // this.dislikes = [...getFakeUsers(5)]
   }
 }
 
