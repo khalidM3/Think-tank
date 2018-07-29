@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { ScrollView, View, Text } from 'react-native'
 import SolutionTile from '../components/solution-tile'
-import kDB from '../config/data/index'
-import {fetchSolutions} from '../config/data/index'
+
+import {fetchSolutions} from '../fake-data'
 
 export default class Home extends Component {
   constructor(props) {
