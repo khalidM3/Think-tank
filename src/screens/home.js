@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { ScrollView } from 'react-native'
-import { List, ListItem } from 'react-native-elements'
+import {ScrollView} from 'react-native'
+import { Button } from 'react-native-elements'
+import ProblemTile from '../components/problem-tile'
 import { fetchProblems } from '../fake-data'
 
-class Feed extends Component {
+class Home extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -12,29 +13,34 @@ class Feed extends Component {
   }
   componentDidMount = () => {
     fetchProblems(10)
-    .then( problems => this.setState({problems}) )
+    .then( problems => {
+      this.setState({problems})
+    })
   }
 
   onLearnMore = (problem) => 
     this.props.navigation.navigate('Problem', { ...problem })
 
+  showProblemForm = () => 
+    this.props.navigation.navigate('ProblemForm')
+
   render() {
     let {problems} = this.state
+
     return (
       <ScrollView>
-        <List>
-          {problems.map( problem  =>
-            <ListItem
-              key={problem.id}
-              title={problem.name}
-              subtitle={problem.desc}
-              onPress={() => this.onLearnMore(problem)}
-            />
-          )}
-        </List>
+        <Button title="Post Sub Problem" backgroundColor="dodgerblue" onPress={this.showProblemForm}/>
+
+        { problems.map( problem  => (
+          <ProblemTile
+            key={problem.id}
+            problem={problem}
+            onLearnMore={() => this.onLearnMore(problem)}
+          />
+        ))}
       </ScrollView>
     );
   }
 }
 
-export default Feed;
+export default Home

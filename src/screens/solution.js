@@ -11,14 +11,14 @@ class Solution extends Component {
     this.state = {
       comments: [],
       solution: {
-       owner: {},
+        owner: {}
       },
     }
   }
 
   componentDidMount = () => {
     fetchSolution()
-    .then( solution => ({solution, showSolution: true}) )
+    .then( solution => this.setState({solution, showSolution: true}) )
     this.onPressComments()
   }
 
