@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { ScrollView, View, Text, Image } from 'react-native'
 import { Card, Tile, List, ListItem, Avatar, Button } from 'react-native-elements'
 import SolutionComment from '../components/comment'
-import {fetchSolutionComments, fetchSolution, fetchProblems} from '../config/data/index'
+import {fetchSolutionComments, fetchSolution, fetchProblems} from '../fake-data'
 
 
 class Solution extends Component {
