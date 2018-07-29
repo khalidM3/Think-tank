@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ScrollView } from 'react-native';
 import { Tile, List, ListItem } from 'react-native-elements';
-import {fetchSolutions, fetchProblems} from '../config/data/index'
+import {fetchSolutions, fetchProblems} from '../fake-data'
 
 class UserDetail extends Component {
   constructor(props) {
