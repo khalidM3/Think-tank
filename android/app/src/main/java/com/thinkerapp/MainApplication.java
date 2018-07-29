@@ -1,4 +1,4 @@
-package com.firstlookreactnavigation;
+package com.thinkerapp;
 
 import android.app.Application;
 
