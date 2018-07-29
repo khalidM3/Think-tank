@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { ScrollView, Text, View, Button } from 'react-native'
-import { Tile, List, ListItem} from 'react-native-elements'
+import { Tile} from 'react-native-elements'
 import SolutionTile from '../components/solution-tile'
 import ProblemTile from '../components/problem-tile'
 import {fetchMe, fetchSolutions, fetchProblems} from '../fake-data'
@@ -32,16 +32,14 @@ class UserDetail extends Component {
     .then( problems => this.setState({problems, showView:'following'}))
   }
 
-  handleSettingsPress = () => {
-    this.props.navigation.navigate('Settings');
-  }
+  handleSettingsPress = () =>
+    this.props.navigation.navigate('Settings')
 
-  onLearnMore = (problem) => {
+  onLearnMore = (problem) => 
     this.props.navigation.navigate('Problem', { ...problem })
-  }
-  onReadMore = (solution) => {
+
+  onReadMore = (solution) => 
     this.props.navigation.navigate('Solution', { ...solution })
-  }
 
 
   render() {
@@ -65,15 +63,14 @@ class UserDetail extends Component {
           <Button title="Following" onPress={this.onPressFollowing}/>
           <Button title="Settings"  onPress={this.handleSettingsPress}/>
         </View>
-        <View>
 
+        <View>
           { showView !== 'solutions' ? undefined : solutions.map( solution =>  
           <SolutionTile
             key={solution.id}
             solution={{...solution, ...{owner: profile}} }
             onReadMore={() => this.onReadMore(solution)}
           /> )}
-
 
         { showView !== 'following' ? undefined : problems.map( problem => (
             <ProblemTile
@@ -82,13 +79,11 @@ class UserDetail extends Component {
               onLearnMore={() => this.onLearnMore(problem)}
             />
           ))}
-
-          
         </View>
 
       </ScrollView>
-    );
+    )
   }
 }
 
-export default UserDetail;
+export default UserDetail
