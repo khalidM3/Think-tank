@@ -1,6 +1,6 @@
 
 import React, {Component} from 'react'
-import { View, Text, Image } from 'react-native'
+import { View, Text } from 'react-native'
 import { Card, ListItem, Button, Avatar } from 'react-native-elements'
 
 class SolutionComment extends Component {
@@ -9,8 +9,7 @@ class SolutionComment extends Component {
   render() {
     let {comment} = this.props
     return(
-      <Card
-        >
+      <Card>
          <View style={{
             height: 50,
             width: '100%',
@@ -28,26 +27,24 @@ class SolutionComment extends Component {
                 onPress={() => this.props.onProfileInfo()}
               />
             <View>
-              <Text> @{comment.owner.name} </Text>
+              <Text> {comment.owner.name} </Text>
+              <Text style={{color:'dimgrey'}}> {comment.owner.title} </Text>
             </View>
             <View>
               {/* <Text> ... </Text> */}
             </View>
         </View>
 
-        <Text style={{marginBottom: 10}}>
+        <Text style={{margin: 5}}>
           { comment.content}
         </Text>
-        <View style={{ 
-          flex: 1,
-          flexDirection: 'row',
-          justifyContent: 'space-around',
-          alignItems: 'center',
-          }}>
-          <Text> upvote </Text>  
-          <Text> downvote </Text>  
-          <Text> reply </Text>  
-        </View>
+
+         <View
+            style={{ flex:1, flexDirection:'row',justifyContent:'flex-start',alignItems: 'center', backgroundColor:'white'}}>
+            <Button  title="upvote"color="dodgerblue" buttonStyle={{borderRadius:3, borderWidth:1, backgroundColor:'white', padding:5, borderColor:'dodgerblue'}}/>
+            <Button title="downvote" color="dodgerblue" buttonStyle={{borderRadius:3, borderWidth:1, backgroundColor:'white', padding:5, borderColor:'dodgerblue'}}/>
+            <Button title="comment" color="dodgerblue" buttonStyle={{borderRadius:3, borderWidth:1, backgroundColor:'white', padding:5, borderColor:'dodgerblue'}}/>
+          </View>
       </Card>
     )
   }
