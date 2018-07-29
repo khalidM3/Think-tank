@@ -1,7 +1,7 @@
 
 import React, {Component} from 'react'
-import { View, Text, Image } from 'react-native'
-import { Card, ListItem, Button } from 'react-native-elements'
+import { View, Text, Button } from 'react-native'
+import { Card, ListItem } from 'react-native-elements'
 
 class SolutionTile extends Component {
 
