@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ScrollView, View, Text } from 'react-native'
+import { ScrollView} from 'react-native'
 import SolutionTile from '../components/solution-tile'
 
 import {fetchSolutions} from '../fake-data'
@@ -13,7 +13,6 @@ export default class Home extends Component {
   }
 
   componentDidMount = () => {
-    console.log('___COMPONENT_DID_MOUNT__',  kDB.fetchPosts(10))
     fetchSolutions(20)
     .then( solutions => {
       this.setState({solutions})
