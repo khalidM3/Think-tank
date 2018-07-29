@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import { ScrollView} from 'react-native'
 import SolutionTile from '../components/solution-tile'
-
 import {fetchSolutions} from '../fake-data'
 
-export default class Home extends Component {
+export default class Feed extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -15,6 +14,7 @@ export default class Home extends Component {
   componentDidMount = () => {
     fetchSolutions(20)
     .then( solutions => {
+      console.log('___SOLUTIONS___', solutions)
       this.setState({solutions})
     })
   }
