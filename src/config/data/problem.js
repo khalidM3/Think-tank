@@ -7,8 +7,9 @@ class Problem {
     this.id = faker.random.uuid()
     this.name = faker.name.title()
     this.desc = faker.lorem.paragraph()
-    this.followers = []
-    this.subProblems = []
+    this.followers = 10
+    this.subProblems = 10
+    this.solutions = 50
   }
 }
 
