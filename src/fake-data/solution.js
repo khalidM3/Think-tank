@@ -6,7 +6,7 @@ class Solution {
   constructor(owner) {
     this.id = faker.random.uuid()
     this.owner = owner ? owner : new User()
-    this.title = faker.name.title()
+    this.title = faker.lorem.words()
     this.content = faker.lorem.paragraph()
     this.banner = 'https'+ (faker.random.image()).slice(4)
     this.upvotes = []
@@ -16,7 +16,7 @@ class Solution {
 
 Solution.fetchFakeSolution = (cb) => {
   try {
-  return cb(null, new Solution(new User())) 
+  return cb(null, new Solution()) 
   } catch(err) {
     return cb(err, null) 
   }
