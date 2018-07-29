@@ -3,7 +3,7 @@ import { ScrollView, View, Text, Button } from 'react-native'
 import { Card, Tile, List, ListItem, Button as Btn } from 'react-native-elements'
 import SolutionTile from '../components/solution-tile'
 import ProblemTile from '../components/problem-tile'
-import {fetchSolutions, fetchUsers, fetchProblems} from '../config/data/index'
+import {fetchSolutions, fetchUsers, fetchProblems} from '../fake-data'
 
 
 class Problem extends Component {
