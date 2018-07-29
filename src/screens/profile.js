@@ -17,18 +17,18 @@ class UserDetail extends Component {
   }
 
   onPressSolutions = () => {
-    fetchSolutions()
-    .then( solutions => this.setState({solutions, showSolutions:true}))
+    fetchSolutions(20)
+    .then( solutions => this.setState({solutions, showView:'solutions'}))
   }
 
   onPressFollowing = () => {
-    fetchProblems()
-    .then( problems => this.setState({problems, showProblems:true}))
+    fetchProblems(20)
+    .then( problems => this.setState({problems, showView:'following'}))
   }
 
   render() {
-    const { avatar, name, email} = this.props.navigation.state.params;
-    const { solutions, problems } = this.state
+    const { avatar, name, email, bio} = this.props.navigation.state.params;
+    const { solutions, problems, showView} = this.state
     return (
       <ScrollView>
         <Tile
@@ -37,32 +37,32 @@ class UserDetail extends Component {
           title={name}
           caption={title}
         />
-        <Text> { bio } </Text>
-        <View>
-          <Text> Solutions </Text>
-          <Text> Following </Text>
+        <View style={{padding:10, backgroundColor: 'white'}}>
+          <Text> {bio } </Text>
+        </View>
+
+        <View 
+          style={{ flex:1,flexDirection:'row',justifyContent:'space-around',alignItems: 'center', backgroundColor:'white', padding:20, borderWidth:1}}>
+          <Button title="Solutions" onPress={this.onPressSolutions}/>
+          <Button title="Following" onPress={this.onPressFollowing}/>
         </View>
 
         <View>
-
-          { solutions.map( solution =>  
+          { showView !== 'solutions' ? undefined : solutions.map( solution =>  
             <SolutionTile
               key={solution.id}
-              solution={{...solution, avatar, name, email}}
+              solution={{...solution, ...{owner: profile}} }
               onReadMore={() => this.onReadMore(solution)}
             /> )}
-            
-          <List>
-          {problems.map( problem => (
-            <ListItem
+
+
+          { showView !== 'following' ? undefined : problems.map( problem => (
+            <ProblemTile
               key={problem.id}
-              title={problem.name}
-              subtitle={problem.desc}
-              onPress={() => this.onLearnMore(problem)}
+              problem={problem}
+              onLearnMore={() => this.onLearnMore(problem)}
             />
           ))}
-        </List>
-        
         </View>
 
       </ScrollView>
