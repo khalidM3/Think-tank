@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, View, Text, Button } from 'react-native';
 import { Tile, List, ListItem } from 'react-native-elements';
+import ProblemTile from '../components/problem-tile'
+import SolutionTile from '../components/solution-tile'
+
 import {fetchSolutions, fetchProblems} from '../config/data/index'
 
 class UserDetail extends Component {
@@ -25,9 +28,17 @@ class UserDetail extends Component {
     fetchProblems(20)
     .then( problems => this.setState({problems, showView:'following'}))
   }
+  
+  onLearnMore = (problem) => {
+    this.props.navigation.navigate('Problem', { ...problem })
+  }
+  onReadMore = (solution) => {
+    this.props.navigation.navigate('Solution', { ...solution })
+  }
 
   render() {
-    const { avatar, name, email, bio} = this.props.navigation.state.params;
+    const { avatar, name, email, bio, title} = this.props.navigation.state.params;
+    const profile = {...this.props.navigation.state.params}
     const { solutions, problems, showView} = this.state
     return (
       <ScrollView>
@@ -37,12 +48,12 @@ class UserDetail extends Component {
           title={name}
           caption={title}
         />
-        <View style={{padding:10, backgroundColor: 'white'}}>
+        <View style={{padding:20, backgroundColor: 'white'}}>
           <Text> {bio } </Text>
         </View>
 
         <View 
-          style={{ flex:1,flexDirection:'row',justifyContent:'space-around',alignItems: 'center', backgroundColor:'white', padding:20, borderWidth:1}}>
+          style={{ flex:1,flexDirection:'row',justifyContent:'space-around',alignItems: 'center', backgroundColor:'white', padding:10}}>
           <Button title="Solutions" onPress={this.onPressSolutions}/>
           <Button title="Following" onPress={this.onPressFollowing}/>
         </View>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { ScrollView, View, Text, Image } from 'react-native'
-import { Card, Tile, List, ListItem, Avatar } from 'react-native-elements'
-import SolutionTile from '../components/solution-tile'
+import { Card, Tile, List, ListItem, Avatar, Button } from 'react-native-elements'
 import SolutionComment from '../components/comment'
 import {fetchSolutionComments, fetchSolution, fetchProblems} from '../config/data/index'
 
@@ -45,7 +44,6 @@ class Solution extends Component {
   render() {
     let { title, content, owner, id } = this.props.navigation.state.params
     let { solution, comments } = this.state
-
     return (
       <ScrollView>
         <View style={{backgroundColor: 'white'}}>
@@ -66,7 +64,8 @@ class Solution extends Component {
                   onPress={() => this.onProfileInfo(solution.owner)}
                 />
               <View>
-                <Text> @{solution.owner.name} </Text>
+                <Text> {solution.owner.name} </Text>
+                <Text style={{color:'dimgrey'}}> {solution.owner.title} </Text>
               </View>
               <View>
               </View>
@@ -81,17 +80,22 @@ class Solution extends Component {
           <Text 
           style={{color: 'dimgrey', padding:10}}
           > {content} </Text>  
-         <View style={{ 
-            flex: 1,
-            flexDirection: 'row',
-            justifyContent: 'space-around',
-            alignItems: 'center',
-
-            }}>
+         {/* <View style={{ flex: 1, flexDirection: 'row',justifyContent: 'space-around',alignItems: 'center'}}>
             <Text> upvote </Text>  
             <Text> downvote </Text>  
             <Text> comments </Text>  
+          </View> */}
+
+          <View
+            style={{ flex:1,flexDirection:'row',justifyContent:'flex-start',alignItems: 'center', backgroundColor:'white'}}>
+            <Button  title="upvote"color="dodgerblue" buttonStyle={{marginBottom:10, borderRadius:3, borderWidth:1, backgroundColor:'white', padding:5, borderColor:'dodgerblue'}}
+               onPress={this.onPressUpvote}/>
+            <Button title="downvote" color="dodgerblue" buttonStyle={{marginBottom:10, borderRadius:3, borderWidth:1, backgroundColor:'white', padding:5, borderColor:'dodgerblue'}}
+              onPress={this.onPressDownvote}/>
+            <Button title="comment" color="dodgerblue" buttonStyle={{marginBottom:10, borderRadius:3, borderWidth:1, backgroundColor:'white', padding:5, borderColor:'dodgerblue'}}
+            onPress={this.onPressComments}/>
           </View>
+          
         </View>
 
         <View>

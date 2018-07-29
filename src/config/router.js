@@ -6,11 +6,14 @@ import Feed from '../screens/feed'
 import Settings from '../screens/settings'
 import Solution from '../screens/solution'
 
-import UserDetail from '../screens/userDetail'
+import UserDetail from '../screens/user-detail'
 import ProblemPage from '../screens/problem'
 
 import Me from '../screens/me'
 import Home from '../screens/home'
+
+import SolutionForm from '../screens/solution-form'
+import ProblemForm from '../screens/problem-form'
 
 export const HomeStack = StackNavigator({
   Home : {
@@ -80,14 +83,24 @@ export const SettingsStack = StackNavigator({
     },
   },
 })
-// export const SolutionStack = StackNavigator({
-//   Solution: {
-//     screen: Solution,
-//     navigationOptions: {
-//       title: 'Solution',
-//     },
-//   },
-// })
+
+export const SolutionFormStack = StackNavigator({
+  SolutionForm: {
+    screen: SolutionForm,
+    navigationOptions: {
+      title: 'Solution',
+    },
+  },
+})
+
+export const ProblemFormStack = StackNavigator({
+  ProblemForm: {
+    screen: ProblemForm,
+    navigationOptions: {
+      title: 'Problem',
+    },
+  },
+})
 
 export const Root = StackNavigator({
   Tabs: {
@@ -96,9 +109,12 @@ export const Root = StackNavigator({
   Settings: {
     screen: SettingsStack,
   },
-  // Solution: {
-  //   screen: SolutionStack,
-  // }
+  SolutionForm: {
+    screen: SolutionFormStack,
+  },
+  ProblemForm: {
+    screen: ProblemFormStack,
+  }
 }, {
   mode: 'modal',
   headerMode: 'none',

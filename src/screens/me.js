@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { ScrollView, Text, View } from 'react-native'
-import { Tile, List, ListItem, Button} from 'react-native-elements'
+import { ScrollView, Text, View, Button } from 'react-native'
+import { Tile, List, ListItem} from 'react-native-elements'
 import SolutionTile from '../components/solution-tile'
+import ProblemTile from '../components/problem-tile'
 import {fetchMe, fetchSolutions, fetchProblems} from '../config/data/index'
 
 class UserDetail extends Component {
@@ -17,26 +18,34 @@ class UserDetail extends Component {
   componentDidMount = () => {
     fetchMe()
     .then( profile => this.setState({profile}))
+    this.onPressSolutions()
   }
 
 
   onPressSolutions = () => {
     fetchSolutions(20)
-    .then( solutions => this.setState({solutions, showSolutions:true}))
+    .then( solutions => this.setState({solutions, showView:'solutions'}))
   }
 
   onPressFollowing = () => {
     fetchProblems(20)
-    .then( problems => this.setState({problems, showProblems:true}))
+    .then( problems => this.setState({problems, showView:'following'}))
   }
 
   handleSettingsPress = () => {
     this.props.navigation.navigate('Settings');
-  };
+  }
+
+  onLearnMore = (problem) => {
+    this.props.navigation.navigate('Problem', { ...problem })
+  }
+  onReadMore = (solution) => {
+    this.props.navigation.navigate('Solution', { ...solution })
+  }
 
 
   render() {
-    const { profile, solutions, problems } = this.state
+    const { profile, solutions, problems, showView } = this.state
 
     return (
       <ScrollView>
@@ -46,42 +55,35 @@ class UserDetail extends Component {
           title={profile.name}
           caption={profile.title}
         />
-        <Text> { profile.bio } </Text>
-        <View style={{ 
-          flex: 1,
-          flexDirection: 'row',
-          justifyContent: 'space-around',
-          alignItems: 'center',
-          }}>
-           <Button
-          title="Settings"
-          buttonStyle={{ marginTop: 20 }}
-          onPress={this.handleSettingsPress}
-        />
-          <Text> Solutions </Text>
-          <Text> Following </Text>
+        <View style={{padding:20, backgroundColor: 'white'}}>
+          <Text> { profile.bio } </Text>
         </View>
 
+        <View 
+          style={{ flex:1,flexDirection:'row',justifyContent:'space-around',alignItems: 'center', backgroundColor:'white', padding:20}}>
+          <Button title="Solutions" onPress={this.onPressSolutions}/>
+          <Button title="Following" onPress={this.onPressFollowing}/>
+          <Button title="Settings"  onPress={this.handleSettingsPress}/>
+        </View>
         <View>
 
-          { solutions.map( solution =>  
-            <SolutionTile
-              key={solution.id}
-              solution={{...solution, ...profile}}
-              onReadMore={() => this.onReadMore(solution)}
-            /> )}
-            
-          <List>
-          {problems.map( problem => (
-            <ListItem
+          { showView !== 'solutions' ? undefined : solutions.map( solution =>  
+          <SolutionTile
+            key={solution.id}
+            solution={{...solution, ...{owner: profile}} }
+            onReadMore={() => this.onReadMore(solution)}
+          /> )}
+
+
+        { showView !== 'following' ? undefined : problems.map( problem => (
+            <ProblemTile
               key={problem.id}
-              title={problem.name}
-              subtitle={problem.desc}
-              onPress={() => this.onLearnMore(problem)}
+              problem={problem}
+              onLearnMore={() => this.onLearnMore(problem)}
             />
           ))}
-        </List>
-        
+
+          
         </View>
 
       </ScrollView>

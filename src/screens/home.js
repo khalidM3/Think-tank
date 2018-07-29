@@ -1,10 +1,7 @@
-import React, { Component } from 'react';
-import {
-  Text,
-  View,
-  ScrollView
-} from 'react-native';
-import { List, ListItem } from 'react-native-elements';
+import React, { Component } from 'react'
+import { Text, View, ScrollView} from 'react-native'
+import { Button } from 'react-native-elements'
+import ProblemTile from '../components/problem-tile'
 import { fetchProblems } from '../config/data/index'
 class Feed extends Component {
   constructor(props) {
@@ -23,14 +20,18 @@ class Feed extends Component {
   }
 
   onLearnMore = (problem) => {
-    this.props.navigation.navigate('Problem', { ...problem });
+    this.props.navigation.navigate('Problem', { ...problem })
+  }
+  showProblemForm = () => {
+    this.props.navigation.navigate('ProblemForm')
   }
 
   render() {
     let {problems} = this.state
     return (
       <ScrollView>
-        <List>
+        <Button title="Post Sub Problem" backgroundColor="dodgerblue" onPress={this.showProblemForm}/>
+        {/* <List>
           {problems.map( problem  => (
             <ListItem
               key={problem.id}
@@ -38,8 +39,16 @@ class Feed extends Component {
               subtitle={problem.desc}
               onPress={() => this.onLearnMore(problem)}
             />
+          ))} */}
+        {/* </List> */}
+
+        { problems.map( problem  => (
+            <ProblemTile
+              key={problem.id}
+              problem={problem}
+              onLearnMore={() => this.onLearnMore(problem)}
+            />
           ))}
-        </List>
       </ScrollView>
     );
   }
