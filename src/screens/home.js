@@ -1,11 +1,8 @@
-import React, { Component } from 'react';
-import {
-  Text,
-  View,
-  ScrollView
-} from 'react-native';
-import { List, ListItem } from 'react-native-elements';
+import React, { Component } from 'react'
+import { ScrollView } from 'react-native'
+import { List, ListItem } from 'react-native-elements'
 import { fetchProblems } from '../fake-data'
+
 class Feed extends Component {
   constructor(props) {
     super(props)
@@ -14,31 +11,26 @@ class Feed extends Component {
     }
   }
   componentDidMount = () => {
-    console.log('__COMPONENT_DID_MOUNT__')
     fetchProblems(10)
-    .then( problems => {
-      console.log(problems)
-      this.setState({problems})
-    })
+    .then( problems => this.setState({problems}) )
   }
 
-  onLearnMore = (problem) => {
-    this.props.navigation.navigate('Problem', { ...problem });
-  }
+  onLearnMore = (problem) => 
+    this.props.navigation.navigate('Problem', { ...problem })
 
   render() {
     let {problems} = this.state
     return (
       <ScrollView>
         <List>
-          {problems.map( problem  => (
+          {problems.map( problem  =>
             <ListItem
               key={problem.id}
               title={problem.name}
               subtitle={problem.desc}
               onPress={() => this.onLearnMore(problem)}
             />
-          ))}
+          )}
         </List>
       </ScrollView>
     );
