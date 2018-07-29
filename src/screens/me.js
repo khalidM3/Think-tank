@@ -3,7 +3,7 @@ import { ScrollView, Text, View, Button } from 'react-native'
 import { Tile, List, ListItem} from 'react-native-elements'
 import SolutionTile from '../components/solution-tile'
 import ProblemTile from '../components/problem-tile'
-import {fetchMe, fetchSolutions, fetchProblems} from '../config/data/index'
+import {fetchMe, fetchSolutions, fetchProblems} from '../fake-data'
 
 class UserDetail extends Component {
   constructor(props) {
