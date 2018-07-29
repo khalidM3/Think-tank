@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
-import { List, ListItem } from 'react-native-elements';
+import React, { Component } from 'react'
+import { ScrollView } from 'react-native'
+import { List, ListItem } from 'react-native-elements'
 
 class Settings extends Component {
   render() {
@@ -28,4 +28,4 @@ class Settings extends Component {
   }
 }
 
-export default Settings;
+export default Settings
