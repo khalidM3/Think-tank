@@ -9,12 +9,13 @@ Think tank is a mobile app for collaborating to solve world problems built with 
 
 <h5  align="center""> Preview </h5>
 <img src="./images/screens.png" alt="drawing" width="100%"/>
-
+                                                          
+### Installation
 To install Think Tank for development purposes :
 1. `git clone https://github.com/khalidM3/Think-tank.git`
-2. `npm install` or `yarn install`
-3. make sure you have the appropriate environment for react native apps, if not [setup react native environment](https://facebook.github.io/react-native/docs/getting-started)
-3. run `react-native run-ios` for ios or `react-native run-android` for android
+2. make sure you have the appropriate environment for react native apps, if not [setup react native environment](https://facebook.github.io/react-native/docs/getting-started)
+3. run `npm install` or `yarn install`
+4. run `react-native run-ios` for ios or `react-native run-android` for android
 
 ### Fake API
 The app is populated with fake data from `./src/fake-data` which acts like a fake api getting its values from [faker.js](https://www.npmjs.com/package/faker). The fake api has 4 models :
