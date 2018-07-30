@@ -1,6 +1,7 @@
 import faker from 'faker'
 import {looper} from './util'
 import { AsyncStorage} from 'react-native'
+
 class User  {
   constructor() {
     this.id = faker.random.number()
