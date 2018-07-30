@@ -6,6 +6,7 @@ Think tank is a mobile app for collaborating to solve world problems built with 
 <img src="./images/home.png" alt="drawing" width="200px" style="width:100px;display:inline-block;"/>
 <img src="./images/solution.png" alt="drawing" width="200px" style="width:100px;display:inline-block;"/>
 <img src="./images/profile.png" alt="drawing" width="200px" style="width:100px;display:inline-block;"/>
+<img src="./images/comments.png" alt="drawing" width="200px" style="width:100px;display:inline-block;"/>
 
 ### installing
 To install Think Tank for development purposes :
