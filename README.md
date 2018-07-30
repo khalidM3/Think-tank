@@ -1,8 +1,13 @@
 <h1 align="center""> Think Tank </h1>
 
-Think tank is a mobile app for collaborating to solve world problems built with react native. Users can add a new "Problem" to the app and other users that are interested in the same problem can try to solve the problem by adding their "Solution". Solutions are upvoted and downvoted by the community as they try to find the best solution to fix the problem. 
+Think tank is a mobile app for collaborating to solve world problems built with react native. Users can add a new **Problem** to the app and other users that are interested in the same problem can try to solve the problem by adding their **Solution**. Solutions are upvoted and downvoted by the community as they try to find the best solution to fix the problem.
 
-#### Preview
+### Key features
+1. Users can not follow other users, so every opinion is judged by people equally
+2. Users can create a sub problem of problems, called a **Sub Problem** if the problem is too vague. <br>
+    eg Homelessness in Seattle is a sub problem of Homelessness. 
+
+<h5  align="center""> Preview </h5>
 <img src="./images/screens.png" alt="drawing" width="100%"/>
 
 To install Think Tank for development purposes :
@@ -17,7 +22,8 @@ The app is populated with fake data from `./src/fake-data` which acts like a fak
   2. Problem
   3. Solution
   4. Comment
-
+  
+<h5  align="center""> Other screens </h5>
 <img src="./images/screens2.png" alt="drawing" width="100%"/>
 
 ### To be continued ...
