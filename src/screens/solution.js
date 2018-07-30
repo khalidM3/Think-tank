@@ -38,7 +38,7 @@ class Solution extends Component {
     this.props.navigation.navigate('Problem', { ...problem })
 
   render() {
-    let { title, content} = this.props.navigation.state.params
+    let { title, content, banner} = this.props.navigation.state.params
     let { solution, comments } = this.state
     return (
       <ScrollView>
@@ -67,10 +67,10 @@ class Solution extends Component {
            {title}
           </Text>  
           <Image 
-            style={{width: '100%', height: 100}}
-            source={{uri: solution.banner}} />
+            style={{width: '100%', height: 200}}
+            source={{uri: banner}} />
         
-          <Text style={{color: 'dimgrey', padding:10}}>
+          <Text style={{color: 'dimgrey', padding:10, maxHeight: 130}}>
               {content}
            </Text>  
 
