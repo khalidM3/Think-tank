@@ -29,7 +29,7 @@ class Home extends Component {
 
     return (
       <ScrollView>
-        <Button title="Post Sub Problem" backgroundColor="dodgerblue" onPress={this.showProblemForm}/>
+        <Button title="Post Problem" backgroundColor="dodgerblue" onPress={this.showProblemForm}/>
 
         { problems.map( problem  => (
           <ProblemTile

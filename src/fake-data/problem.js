@@ -1,6 +1,6 @@
 import faker from 'faker'
-import User from './user'
-import {looper, promisify} from './util'
+
+import {looper} from './util'
 
 class Problem {
   constructor(owner) {
