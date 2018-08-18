@@ -18,7 +18,7 @@ To install Think Tank for development purposes :
 4. run `react-native run-ios` for ios or `react-native run-android` for android
 
 ### Fake API
-The app is populated with fake data that is generated using [faker.js](https://www.npmjs.com/package/faker). inside  `./src/fake-data` which acts like a fake api. The fake api has 4 models :
+The app is populated with fake data that is generated using [faker.js](https://www.npmjs.com/package/faker) inside  `./src/fake-data` which acts like a fake api. The fake api has 4 models :
   1. User
   2. Problem
   3. Solution
