@@ -24,7 +24,7 @@ The app is populated with fake data that is generated using [faker.js](https://w
   3. Solution
   4. Comment
   
-<h5  align="center""> Other screens </h5>
+<h5  align="center""> Preview </h5>
 <img src="./images/screens2.png" alt="drawing" width="100%"/>
 
 ### To be continued ...
